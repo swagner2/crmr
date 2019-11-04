@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2019_08_01_160834) do
     t.datetime "expires_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["token"], name: "index_api_tokens_on_token", unique: true
     t.index ["user_id"], name: "index_api_tokens_on_user_id"
   end
 
@@ -145,7 +146,6 @@ ActiveRecord::Schema.define(version: 2019_08_01_160834) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["encrypted_access_token_iv"], name: "index_connected_accounts_access_token_iv", unique: true
-    t.index ["encrypted_access_token_iv"], name: "index_user_connected_accounts_on_encrypted_access_token_iv", unique: true
     t.index ["encrypted_access_token_secret_iv"], name: "index_connected_accounts_access_token_secret_iv", unique: true
     t.index ["user_id"], name: "index_user_connected_accounts_on_user_id"
   end
