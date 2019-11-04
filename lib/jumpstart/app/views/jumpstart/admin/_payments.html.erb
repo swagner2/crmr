@@ -1,0 +1,32 @@
+<div class="form-group">
+  <label>Payment Processors</label>
+  <li>
+    <label>
+      <%= check_box_tag "configuration[payment_processors][]",
+        :stripe,
+        @config.stripe? %>
+      Stripe
+    </label>
+  </li>
+  <li>
+    <label>
+      <%= check_box_tag "configuration[payment_processors][]",
+        :braintree,
+        @config.braintree? %>
+      Braintree
+    </label>
+  </li>
+  <li>
+    <label>
+      <%= check_box_tag "configuration[payment_processors][]",
+        :paypal,
+        @config.paypal? %>
+      Paypal
+    </label>
+  </li>
+</div>
+
+<hr />
+
+<h5>Plans</h5>
+<p>To add plans, visit <%= link_to "the Plans page", main_app.admin_plans_path %> in the admin.</p>
